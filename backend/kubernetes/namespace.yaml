@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: instaforge
+  labels:
+    name: instaforge
+    environment: production
+    managed-by: terraform

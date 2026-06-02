@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: instaforge-config
+  namespace: instaforge
+  labels:
+    app: instaforge
+data:
+  APP_NAME: instaforge
+  APP_ENV: production
+  APP_PORT: "8080"
+  APP_LOG_LEVEL: info
+
+  DB_HOST: instaforge-postgres-rw.instaforge.svc.cluster.local
+  DB_PORT: "5432"
+  DB_NAME: instaforge
+  DB_SSL_MODE: require
+  DB_MAX_OPEN_CONNS: "50"
+  DB_MAX_IDLE_CONNS: "10"
+  DB_CONN_MAX_LIFETIME: "300"
+
+  DB_REPLICA_HOST: instaforge-postgres-ro.instaforge.svc.cluster.local
+  DB_REPLICA_PORT: "5432"
+  DB_REPLICA_NAME: instaforge
+  DB_REPLICA_SSL_MODE: require
+
+  REDIS_ADDRS: instaforge-redis.instaforge.svc.cluster.local:6379
+  REDIS_DB: "0"
+  REDIS_POOL_SIZE: "50"
+
+  KAFKA_BROKERS: instaforge-kafka.instaforge.svc.cluster.local:9092
+  KAFKA_CLIENT_ID: instaforge
+  KAFKA_CONSUMER_GROUP: instaforge-workers
+  KAFKA_DOWNLOAD_TOPIC: download_requests
+  KAFKA_RETRY_TOPIC: download_retry
+  KAFKA_DLQ_TOPIC: download_dlq
+
+  RATE_LIMIT_REQUESTS: "100"
+  RATE_LIMIT_WINDOW: "60"
+
+  CACHE_TTL_SECONDS: "300"
+  CACHE_USER_TTL_SECONDS: "600"
+  CACHE_WARM_ENABLED: "true"
+
+  OTEL_ENABLED: "true"
+  OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector.observability.svc.cluster.local:4318
+
+  STORAGE_PROVIDER: s3
+  STORAGE_TEMP_DIR: /tmp/instaforge
+
+  FEATURE_CAROUSEL_ENABLED: "true"
+  FEATURE_STORIES_ENABLED: "true"
+  FEATURE_USERNAME_SEARCH_ENABLED: "true"

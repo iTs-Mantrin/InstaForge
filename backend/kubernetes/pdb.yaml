@@ -1,0 +1,12 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: instaforge
+  namespace: instaforge
+  labels:
+    app: instaforge
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: instaforge
