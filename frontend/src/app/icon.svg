@@ -6,9 +6,10 @@
     </linearGradient>
   </defs>
   <rect width="24" height="24" rx="5" fill="url(#brand)"/>
+  <!-- Camera icon matching navbar logo -->
   <g stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 12l4 4 4-4"/>
-    <path d="M12 4v12"/>
-    <path d="M4 18v1a2 2 0 002 2h12a2 2 0 002-2v-1"/>
+    <rect width="16" height="13" x="4" y="6" rx="3"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="16.5" cy="8.5" r="1.2" fill="#ffffff"/>
   </g>
 </svg>
